@@ -45,8 +45,8 @@ struct StockpileControl {
             "                                    R.refinedAt, R.refinedDate     "
             "     FROM Ore O                                                    "
             "LEFT JOIN RefinedOre R                                             "
-            "    WHERE O.location = :1                                          "
             "       ON O.oid = R.oid                                            "
+            "    WHERE O.location = :1                                          "
             "      AND O.oid      = :2                                          "
         );
 
@@ -133,6 +133,8 @@ struct StockpileControl {
 
             deller_a->setString(1, command);
             deller_a->executeUpdate();
+
+	    IO::print("ore sold successfully");
 
             return;
 

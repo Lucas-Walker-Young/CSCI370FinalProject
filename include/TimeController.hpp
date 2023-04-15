@@ -129,23 +129,15 @@ struct TimeController {
     // -----------------------------------------------------------------------------------------
     void control() {
 
-        IO::print("a");
         createRefinedOre->executeUpdate();
-        IO::print("b");
         updateRefinedOre->executeUpdate();
-        IO::print("c");
         updateRefineries->executeUpdate();
-        IO::print("d");
 
         createOre->executeUpdate();
-        IO::print("e");
         updateAsteroids->executeUpdate();
-        IO::print("f");
 
         updateOre->executeUpdate();
-        IO::print("g");
         updateDrones->executeUpdate();
-        IO::print("f");
 
     }
 

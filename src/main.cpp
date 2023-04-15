@@ -34,13 +34,17 @@ struct Application {
     // ------------------------------- ATTRIBUTES :: Attributes --------------------------------
     // -----------------------------------------------------------------------------------------
     const std::string database = "database.csci.viu.ca";
-    const std::string username = "youngjl";
-    const std::string password = "658989884";
+    const std::string username;
+    const std::string password;
 
 
     // -----------------------------------------------------------------------------------------
     // ------------------------------ CONSTRUCTOR :: Constructor -------------------------------
     // -----------------------------------------------------------------------------------------
+    Application(const std::string& username, const std::string& password): username( username ),
+									   password( password )
+
+	{}
 
 
     // -----------------------------------------------------------------------------------------
@@ -197,7 +201,27 @@ struct Application {
 // -------------------------------------------------------------------------------------------------
 int main() {
 
-    Application application;
-    application.run();
+    std::string username;
+    std::string password;
+
+    IO io;
+
+    io.read(">>> enter username: ", username);
+
+    if ( !username.empty() ) {
+
+	io.hide();
+	io.read(">>> enter password: ", password);
+ 	io.show();
+	io.line();
+
+	if ( !password.empty() ) {
+
+    	    Application application(username, password);
+    	    application.run();
+
+	}
+
+    }
 
 }
